@@ -1,13 +1,28 @@
-import { useState } from "react";
 import "./App.css";
+import Cart from "./components/Cart";
+import Dashboard from "./components/Dashboard";
 import Product from "./components/Product";
 
-function App() {
-  const [count, setCount] = useState(0);
+import {
+  createBrowserRouter,
+  Route,
+  createRoutesFromElements,
+  RouterProvider,
+} from "react-router-dom";
+import Layout from "./components/RootLayout/Layout";
 
+function App() {
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Dashboard />}></Route>
+        <Route path="cart" element={<Cart />}></Route>
+      </Route>
+    )
+  );
   return (
     <>
-      <Product />
+      <RouterProvider router={router}></RouterProvider>
     </>
   );
 }

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios"; // Import axios
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
+import axios from "axios";
+import "../styles/Product.css";
 
 const Product = () => {
   const [products, setProducts] = useState([]);
@@ -14,26 +13,32 @@ const Product = () => {
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
-  }, []); // Add an empty dependency array to ensure the effect runs only once
+  }, []);
 
   return (
-    <>
-      {products.map((product) => (
-        <Card key={product.id} style={{ width: "18rem", marginBottom: "10px" }}>
-          <Card.Img
-            variant="top"
-            src={product.image}
-            alt={product.title}
-            style={{ width: "100%", height: "300px" }}
-          />
-          <Card.Body>
-            <Card.Title>{product.title}</Card.Title>
-            <Card.Text>{product.description.substring(0, 100)}...</Card.Text>
-            <Button variant="primary">Go somewhere</Button>
-          </Card.Body>
-        </Card>
-      ))}
-    </>
+    <div className="product-container">
+      <div className="product-grid">
+        {products.map((product) => (
+          <div key={product.id} className="product-card">
+            <div className="product-img-wrapper">
+              <img
+                src={product.image}
+                alt={product.title}
+                className="product-img"
+              />
+              <span className="price-tag">${product.price}</span>
+            </div>
+            <div className="product-details">
+              <h3 className="product-title">{product.title}</h3>
+              <p className="product-description">
+                {product.description.substring(0, 50)}...
+              </p>
+              <button className="buy-now-btn">Buy Now</button>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 };
 

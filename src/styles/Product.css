@@ -1,0 +1,138 @@
+/* Container for products with dark background */
+.product-container {
+  padding: 50px;
+  background-color: #1a1a1a; /* Dark background */
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Grid layout for products */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 30px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Product card styling */
+.product-card {
+  background-color: #2c2c2c; /* Dark card background */
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3); /* Deeper shadow */
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-10px); /* Lifting effect */
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5); /* Stronger shadow on hover */
+}
+
+/* Image container styling */
+.product-img-wrapper {
+  position: relative;
+  height: 300px;
+}
+
+.product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.4s ease;
+}
+
+.product-card:hover .product-img {
+  transform: scale(1.05); /* Image zoom effect */
+}
+
+/* Price tag styling */
+.price-tag {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #ff4757; /* Bright red price tag */
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 20px 0 0 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Tag shadow */
+}
+
+/* Product details styling */
+.product-details {
+  padding: 20px;
+  text-align: center;
+  flex-grow: 1;
+}
+
+.product-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #f1f1f1; /* Light title text */
+}
+
+.product-description {
+  font-size: 0.95rem;
+  color: #d3d3d3; /* Slightly lighter description */
+  margin-bottom: 50px;
+  /* min-height: 50px; */
+}
+
+/* Buy now button styling */
+.buy-now-btn {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translate(-50%);
+  background-color: transparent;
+  border: 2px solid #ff4757;
+  color: #ff4757;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.4s ease, color 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 4px 20px rgba(255, 71, 87, 0.2);
+}
+.buy-now-btn:hover {
+  background-color: #ff4757;
+  color: #fff;
+  box-shadow: 0 6px 30px rgba(255, 71, 87, 0.4); /* Hover shadow */
+}
+
+/* Small animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.product-card {
+  animation: fadeInUp 0.5s ease both; /* Fade-up animation for each card */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+}
