@@ -1,9 +1,11 @@
 import React from "react";
+import Product from "./Product";
 
 const Dashboard = () => {
   return (
     <>
-      <div>Dashboard</div>
+      <div>Product Dashboard</div>
+      <Product />
     </>
   );
 };

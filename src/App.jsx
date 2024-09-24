@@ -10,13 +10,16 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Layout from "./components/RootLayout/Layout";
+import Home from "./components/Home";
 
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<Layout />}>
-        <Route index element={<Dashboard />}></Route>
+        <Route index element={<Home />}></Route>
         <Route path="cart" element={<Cart />}></Route>
+        <Route path="product" element={<Product />}></Route>
+        <Route path="dashboard" element={<Dashboard />}></Route>
       </Route>
     )
   );
