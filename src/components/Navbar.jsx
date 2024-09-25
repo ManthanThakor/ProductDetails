@@ -49,7 +49,8 @@ const Navbar = () => {
             `navbar-link ${isActive ? "active-link" : ""}`
           }
         >
-          <FaCartPlus /> <span>0</span>
+          <FaCartPlus className="cart-icon" />{" "}
+          <span className="cart-num">0</span>
         </NavLink>
       </div>
 
